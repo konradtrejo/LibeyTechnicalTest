@@ -1,0 +1,19 @@
+@import "~@ng-select/ng-select/themes/default.theme.css";
+.btn-toolbar {
+	background-color: transparent !important;
+	color: transparent !important;
+	border-color: transparent !important;
+}
+.nav-link.text-toolbar {
+	font-size: 13px;
+	padding: 0.3rem 0.5rem;
+	margin-right: 3px;
+}
+.btn-nav {
+	border: 0;
+	background-color: white;
+	border-radius: 0.625rem;
+}
+.d-flex {
+	display: flex !important;
+}

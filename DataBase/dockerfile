@@ -1,0 +1,9 @@
+FROM mcr.microsoft.com/mssql/server:2019-CU12-ubuntu-20.04
+ENV ACCEPT_EULA=Y
+ENV SA_PASSWORD=.Nv3rrefg049jsKK.
+ENV MSSQL_PID=Express
+COPY ["CEM/SqlCmdScript.sql","var/opt/sqlserver/SqlCmdScript.sql"]
+USER root
+RUN chmod +x var/opt/sqlserver/SqlCmdScript.sql
+USER mssql
+RUN /opt/mssql/bin/sqlservr & sleep 60s & /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P .Nv3rrefg049jsKK. -d master -i /var/opt/sqlserver/SqlCmdScript.sql

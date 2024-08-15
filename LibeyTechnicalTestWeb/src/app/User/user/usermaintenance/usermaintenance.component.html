@@ -3,7 +3,7 @@
 		<div class="card-header"><b>Mantenimiento de usuario</b></div>
 		<div class="card mb-4 mt-4">
 			<ul class="nav">
-				<button type="button" class="btn-toolbar" (click)="Submit()">
+				<button type="button" class="btn-toolbar" (click)="Submit(userForm)">
 					<a class="nav-link text-toolbar">
 						<span>
 							<svg width="20" height="17" viewBox="0 0 14 14" fill="none">
@@ -20,7 +20,7 @@
 						Guardar
 					</a>
 				</button>
-				<button type="button" class="btn-toolbar">
+				<button type="button" class="btn-toolbar" (click)="clearForm()">
 					<a class="nav-link text-toolbar">
 						<span>
 							<svg width="20" height="17" viewBox="0 0 14 14" fill="none">
@@ -37,7 +37,7 @@
 						Limpiar
 					</a>
 				</button>
-				<button type="button" class="btn-toolbar">
+				<button type="button" class="btn-toolbar" (click)="goBack()">
 					<a class="nav-link text-toolbar">
 						<span>
 							<svg width="20" height="17" viewBox="0 0 14 14" fill="none">
@@ -60,35 +60,35 @@
 			<div class="row pb-2 pr-2">
 				<div class="col-lg-2">Tipo de documento</div>
 				<div class="col-lg-4">
-					<ng-select placeholder="Seleccione" class="ng-select-solid" name="CreditDebitNoteReasonTypeId" required>
-						<ng-option value="1">Lima</ng-option>
+					<ng-select placeholder="Seleccione" class="ng-select-solid"  name="documentTypeId"  [(ngModel)] ="user.documentTypeId" required>
+						<ng-option value="1">DNI</ng-option>
 					</ng-select>
 				</div>
 				<div class="col-lg-2">Número de documento</div>
-				<div class="col-lg-4"><input type="text" class="form-control form-control-sm" /></div>
+				<div class="col-lg-4"><input type="text" class="form-control form-control-sm" name="documentNumber" [(ngModel)] ="user.documentNumber"/></div>
 			</div>
 			<div class="row pb-2">
 				<div class="col-lg-2">Nombre</div>
-				<div class="col-lg-4"><input type="text" class="form-control form-control-sm" /></div>
+				<div class="col-lg-4"><input type="text" class="form-control form-control-sm"  name="name" [(ngModel)] ="user.name" /></div>
 				<div class="col-lg-2">Apellido Paterno</div>
-				<div class="col-lg-4"><input type="text" class="form-control form-control-sm" /></div>
+				<div class="col-lg-4"><input type="text" class="form-control form-control-sm" name="fathersLastName" [(ngModel)] ="user.fathersLastName" /></div>
 			</div>
 			<div class="row pb-2">
 				<div class="col-lg-2">Apellido Materno</div>
-				<div class="col-lg-4"><input type="text" class="form-control form-control-sm" /></div>
+				<div class="col-lg-4"><input type="text" class="form-control form-control-sm" name="mothersLastName" [(ngModel)] ="user.mothersLastName" /></div>
 				<div class="col-lg-2">Dirección</div>
-				<div class="col-lg-4"><input type="text" class="form-control form-control-sm" /></div>
+				<div class="col-lg-4"><input type="text" class="form-control form-control-sm" name="address" [(ngModel)] ="user.address" /></div>
 			</div>
 			<div class="row pb-2">
 				<div class="col-lg-2">Departamento</div>
 				<div class="col-lg-4">
-					<ng-select placeholder="Seleccione" class="ng-select-solid" name="CreditDebitNoteReasonTypeId" required>
+					<ng-select placeholder="Seleccione" class="ng-select-solid" name="regionCode"  [(ngModel)] ="user.regionCode" required>
 						<ng-option value="1">Lima</ng-option>
 					</ng-select>
 				</div>
 				<div class="col-lg-2">Provincia</div>
 				<div class="col-lg-4">
-					<ng-select placeholder="Seleccione" class="ng-select-solid" name="CreditDebitNoteReasonTypeId" required>
+					<ng-select placeholder="Seleccione" class="ng-select-solid" name="provinceCode" [(ngModel)] ="user.provinceCode" required>
 						<ng-option value="1">Lima</ng-option>
 					</ng-select>
 				</div>
@@ -96,18 +96,18 @@
 			<div class="row pb-2">
 				<div class="col-lg-2">Distrito</div>
 				<div class="col-lg-4">
-					<ng-select placeholder="Seleccione" class="ng-select-solid" name="CreditDebitNoteReasonTypeId" required>
+					<ng-select placeholder="Seleccione" class="ng-select-solid" name="ubigeoCode" [(ngModel)] ='user.ubigeoCode' required>
 						<ng-option value="1">Villa el salvador</ng-option>
 					</ng-select>
 				</div>
 				<div class="col-lg-2">Telefono</div>
-				<div class="col-lg-4"><input type="text" class="form-control form-control-sm" /></div>
+				<div class="col-lg-4"><input type="text" class="form-control form-control-sm" name="phone" [(ngModel)] ='user.phone' /></div>
 			</div>
 			<div class="row pb-2">
 				<div class="col-lg-2">Correo</div>
-				<div class="col-lg-4"><input type="email" class="form-control form-control-sm" /></div>
+				<div class="col-lg-4"><input type="email" class="form-control form-control-sm" name="email" [(ngModel)] ='this.user.email' /></div>
 				<div class="col-lg-2">Contraseña</div>
-				<div class="col-lg-4"><input type="password" class="form-control form-control-sm" /></div>
+				<div class="col-lg-4"><input type="password" class="form-control form-control-sm" name="password" [(ngModel)] ='this.user.password'/></div>
 			</div>
 		</div>
 	</div>	

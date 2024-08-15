@@ -1,7 +1,30 @@
-﻿namespace LibeyTechnicalTestDomain.LibeyUserAggregate.Application.DTO
+﻿using LibeyTechnicalTestDomain.LibeyUserAggregate.Domain;
+
+namespace LibeyTechnicalTestDomain.LibeyUserAggregate.Application.DTO
 {
     public record LibeyUserResponse
     {
+        private LibeyUser user;
+        public LibeyUserResponse()
+        {
+           
+        }
+        public LibeyUserResponse(LibeyUser user)
+        {
+            if (user != null)
+            {
+                DocumentNumber = user.DocumentNumber;
+                Active = user.Active;
+                Address = user.Address;
+                DocumentTypeId = user.DocumentTypeId;
+                Email = user.Email;
+                FathersLastName = user.FathersLastName;
+                MothersLastName = user.MothersLastName;
+                Name = user.Name;
+                Phone = user.Phone;
+            }
+        }
+
         public string DocumentNumber { get; init; }
         public int DocumentTypeId { get; init; }
         public string Name { get; init; }

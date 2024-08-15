@@ -19,10 +19,37 @@ namespace LibeyTechnicalTestAPI.Controllers.LibeyUser
             var row = _aggregate.FindResponse(documentNumber);
             return Ok(row);
         }
-        [HttpPost]       
-        public IActionResult Create(UserUpdateorCreateCommand command)
+        [HttpPost]
+        public IActionResult Create([FromBody] UserUpdateorCreateCommand command)
         {
-             _aggregate.Create(command);
+            _aggregate.Create(command);
+            return Ok(new ResponseBase
+            {
+                code = 0,
+                message = "Usuario creado Correctamente"
+            });
+        
+        }
+
+        [HttpGet]
+        [Route("users")]
+        public IActionResult getLibeytUsers()
+        {
+            var listLibeyUsers = _aggregate.GetUsers();
+            return Ok(listLibeyUsers);
+        }
+
+        [HttpPut]
+        public IActionResult Update([FromBody] UserUpdateorCreateCommand command)
+        {
+            _aggregate.Update(command);
+            return Ok(true);
+        }
+
+        [HttpDelete("{documentNumber}")]
+        public IActionResult Delete(string documentNumber)
+        {
+            _aggregate.Delete(documentNumber);
             return Ok(true);
         }
     }
